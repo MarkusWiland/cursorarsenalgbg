@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "./_components/sections/Footer";
+import { cn } from "@/lib/utils";
+import Header from "./_components/sections/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="relative">
+      <body className={cn(inter.className, "antialiased bg-background ")}>
+    
+          <Header />
+
+          {children}
+      
+      </body>
     </html>
   );
 }

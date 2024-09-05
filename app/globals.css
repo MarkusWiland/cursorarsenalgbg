@@ -3,31 +3,95 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 51, 51, 51; /* Mörkgrå text */
+  --background-start-rgb: 245, 245, 245; /* Ljus bakgrund */
+  --background-end-rgb: 224, 224, 224; /* Ljusgrå accent */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 229, 229, 229; /* Vit text */
+    --background-start-rgb: 26, 26, 26; /* Mörk bakgrund */
+    --background-end-rgb: 43, 43, 43; /* Mörkgrå accent */
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 96%; /* Ljus bakgrund */
+    --foreground: 0 0% 20%; /* Mörkgrå text */
+    --card: 0 0% 88%; /* Ljusgrå accent */
+    --card-foreground: 0 0% 20%; /* Mörkgrå text */
+    --popover: 0 0% 96%; /* Ljus bakgrund */
+    --popover-foreground: 0 0% 20%; /* Mörkgrå text */
+    --primary: 357 99% 47%; /* Arsenal Röd */
+    --primary-foreground: 0 0% 98%; /* Vit text */
+    --secondary: 0 0% 88%; /* Ljusgrå accent */
+    --secondary-foreground: 0 0% 20%; /* Mörkgrå text */
+    --muted: 0 0% 88%; /* Ljusgrå accent */
+    --muted-foreground: 0 0% 47%; /* Ljusgrå text */
+    --accent: 43 78% 46%; /* Guld accent */
+    --accent-foreground: 0 0% 20%; /* Mörkgrå text */
+    --destructive: 357 99% 47%; /* Arsenal Röd */
+    --destructive-foreground: 0 0% 98%; /* Vit text */
+    --border: 0 0% 88%; /* Ljusgrå accent */
+    --input: 0 0% 88%; /* Ljusgrå accent */
+    --ring: 0 0% 20%; /* Mörkgrå text */
+    --chart-1: 212 100% 14%; /* Mörkblå */
+    --chart-2: 43 78% 46%; /* Guld accent */
+    --chart-3: 357 99% 47%; /* Arsenal Röd */
+    --chart-4: 0 0% 20%; /* Mörkgrå text */
+    --chart-5: 0 0% 88%; /* Ljusgrå accent */
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 10%; /* Mörk bakgrund */
+    --foreground: 0 0% 90%; /* Vit text */
+    --card: 0 0% 17%; /* Mörkgrå accent */
+    --card-foreground: 0 0% 90%; /* Vit text */
+    --popover: 0 0% 10%; /* Mörk bakgrund */
+    --popover-foreground: 0 0% 90%; /* Vit text */
+    --primary: 357 99% 47%; /* Arsenal Röd */
+    --primary-foreground: 0 0% 98%; /* Vit text */
+    --secondary: 0 0% 17%; /* Mörkgrå accent */
+    --secondary-foreground: 0 0% 90%; /* Vit text */
+    --muted: 0 0% 17%; /* Mörkgrå accent */
+    --muted-foreground: 0 0% 63.9%; /* Ljusgrå accent */
+    --accent: 43 78% 46%; /* Guld accent */
+    --accent-foreground: 0 0% 90%; /* Vit text */
+    --destructive: 357 99% 47%; /* Arsenal Röd */
+    --destructive-foreground: 0 0% 90%; /* Vit text */
+    --border: 0 0% 17%; /* Mörkgrå accent */
+    --input: 0 0% 17%; /* Mörkgrå accent */
+    --ring: 0 0% 63.9%; /* Ljusgrå accent */
+    --chart-1: 212 100% 14%; /* Mörkblå */
+    --chart-2: 43 78% 46%; /* Guld accent */
+    --chart-3: 357 99% 47%; /* Arsenal Röd */
+    --chart-4: 0 0% 10%; /* Mörk bakgrund */
+    --chart-5: 0 0% 90%; /* Vit text */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
